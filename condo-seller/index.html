@@ -3,22 +3,59 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Condo Seller Snapshot | Rima Hodgeson</title>
+  <title>LSU Condo Seller | Rima Hodgeson</title>
 </head>
 <body>
-  <!-- IMPORTANT: replace ACTION_URL with your Formspree endpoint (looks like https://formspree.io/f/xxxxx) -->
-  <h1>Condo Seller Snapshot</h1>
-  <p>Share your info and I will send a value range + selling plan.</p>
+  <!-- ACTION REQUIRED: replace ACTION_URL with your Formspree endpoint (looks like https://formspree.io/f/xxxxx) -->
+  <h1>LSU Condo Seller Snapshot</h1>
+  <p>Quick questions so I can price and position your condo for the right buyer (LSU area).</p>
 
   <form action="ACTION_URL" method="POST">
-    <p><label>Name* <input name="name" required></label></p>
+    <p><label>Full name* <input name="name" required></label></p>
     <p><label>Email* <input type="email" name="email" required></label></p>
     <p><label>Phone <input name="phone"></label></p>
-    <p><label>Condo address / unit* <input name="property_address" required></label></p>
-    <p><label>Notes<br><textarea name="notes" rows="4" cols="50"></textarea></label></p>
 
-    <input type="hidden" name="lead_source" value="Compass condo email">
-    <button type="submit">Send</button>
+    <p><label>Condo address / unit* <input name="property_address" required></label></p>
+    <p><label>Bedrooms* <select name="bedrooms" required>
+      <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4+">4+</option>
+    </select></label></p>
+    <p><label>Bathrooms* <select name="bathrooms" required>
+      <option value="1">1</option><option value="2">2</option><option value="3+">3+</option>
+    </select></label></p>
+    <p><label>Approx. square feet <input name="sqft"></label></p>
+    <p><label>HOA dues (monthly) <input name="hoa_dues" placeholder="$"></label></p>
+    <p><label>Any special assessments? <textarea name="assessments" rows="2"></textarea></label></p>
+
+    <p>Updates (check all that apply)</p>
+    <p>
+      <label><input type="checkbox" name="updates" value="Kitchen"> Kitchen</label>
+      <label><input type="checkbox" name="updates" value="Bathrooms"> Bathrooms</label>
+      <label><input type="checkbox" name="updates" value="Flooring"> Flooring</label>
+      <label><input type="checkbox" name="updates" value="Paint"> Paint</label>
+      <label><input type="checkbox" name="updates" value="HVAC"> HVAC</label>
+      <label><input type="checkbox" name="updates" value="Windows/Doors"> Windows/Doors</label>
+    </p>
+
+    <p><label>Currently <select name="occupancy">
+      <option value="Owner-occupied">Owner-occupied</option>
+      <option value="Tenant">Tenant</option>
+      <option value="Vacant">Vacant</option>
+    </select></label></p>
+
+    <p><label>Why are you selling? <textarea name="reason" rows="2"></textarea></label></p>
+    <p><label>Desired timing <select name="timeline">
+      <option value="ASAP">ASAP</option>
+      <option value="30-60 days">30-60 days</option>
+      <option value="60-90 days">60-90 days</option>
+      <option value="90+ days">90+ days</option>
+      <option value="Just curious">Just curious</option>
+    </select></label></p>
+    <p><label>Price expectation (optional) <input name="price_expectation" placeholder="$"></label></p>
+
+    <p><label>Anything else I should know? <textarea name="notes" rows="3"></textarea></label></p>
+
+    <input type="hidden" name="lead_source" value="LSU Condo Seller form" />
+    <button type="submit">Send to Rima</button>
   </form>
 </body>
 </html>
