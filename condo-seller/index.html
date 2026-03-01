@@ -4,259 +4,747 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LSU Area Condo Seller Intake | Rima Hodgeson</title>
+
   <style>
-    body{font-family:Arial,sans-serif;margin:16px;background:#f7f7f7;}
-    .card{max-width:860px;margin:0 auto;background:#fff;padding:18px;border-radius:14px;}
-    h1{margin:0 0 8px 0;}
-    p.lead{margin:0 0 16px 0;color:#444;line-height:1.35;}
-    fieldset{border:1px solid #ddd;border-radius:10px;padding:14px;margin:16px 0;}
-    legend{font-weight:800;padding:0 8px;}
-    label{font-weight:700;display:block;margin:10px 0 6px 0;}
-    input, select, textarea{width:100%;padding:10px;border:1px solid #ccc;border-radius:10px;font-size:14px;}
-    .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
-    .inline{display:flex;flex-wrap:wrap;gap:10px;}
-    .inline label{font-weight:500;display:inline-flex;align-items:center;gap:8px;margin:0;}
-    button{margin-top:14px;width:100%;padding:14px;border:none;border-radius:12px;background:#111;color:#fff;font-size:16px;font-weight:800;cursor:pointer;}
+    :root{
+      --lsu-purple:#461D7C;
+      --lsu-gold:#FDD023;
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --soft:#f3f4f6;
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      padding:22px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(900px 520px at 10% -10%, rgba(70,29,124,.10), transparent 55%),
+        radial-gradient(700px 420px at 110% 0%, rgba(253,208,35,.12), transparent 50%),
+        var(--bg);
+      color:var(--text);
+    }
+    .wrap{max-width:980px;margin:0 auto}
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:0 14px 34px rgba(17,24,39,.08);
+      overflow:hidden;
+    }
+    .goldline{
+      height:5px;
+      width:100%;
+      background:linear-gradient(90deg,var(--lsu-gold),rgba(253,208,35,.35));
+    }
+    .header{
+      padding:18px 18px 14px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(90deg, rgba(70,29,124,.10), rgba(253,208,35,.10));
+    }
+    .brand{display:flex;align-items:flex-start;gap:12px}
+    .logo{
+      width:48px;height:48px;border-radius:14px;
+      display:flex;align-items:center;justify-content:center;
+      font-weight:900;color:#fff;
+      background:linear-gradient(135deg,var(--lsu-purple),#2f0f58);
+      border:1px solid rgba(0,0,0,.08);
+      letter-spacing:.5px;
+      flex:0 0 auto;
+    }
+    h1{margin:0;font-size:20px;letter-spacing:.2px}
+    .sub{margin:6px 0 0;color:var(--muted);line-height:1.45;max-width:860px}
+    .pillbar{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--line);
+      font-weight:800;
+      font-size:12px;
+      color:#111;
+    }
+    .dot{
+      width:9px;height:9px;border-radius:50%;
+      background:var(--lsu-gold);
+      box-shadow:0 0 0 3px rgba(253,208,35,.25);
+    }
+    .content{padding:18px}
+    fieldset{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+      margin:14px 0;
+      background:#fff;
+    }
+    legend{font-weight:900;padding:0 10px}
+    label{display:block;font-weight:900;margin:8px 0 6px}
+    input, select, textarea{
+      width:100%;
+      padding:11px 12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      font-size:14px;
+      background:#fff;
+      outline:none;
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color:rgba(70,29,124,.55);
+      box-shadow:0 0 0 4px rgba(70,29,124,.12);
+    }
+    textarea{min-height:92px;resize:vertical}
+    .row{display:grid;gap:12px}
+    @media(min-width:760px){
+      .row.cols2{grid-template-columns:1fr 1fr}
+      .row.cols3{grid-template-columns:1fr 1fr 1fr}
+    }
+    .ctaCard{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+      background:#fff;
+      margin-bottom:14px;
+    }
+    .ctaTop{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .ctaName{font-weight:1000;font-size:16px;line-height:1.2}
+    .ctaTitle{color:var(--muted);font-weight:800;margin-top:2px}
+    .ctaBtns{margin-top:10px;display:flex;flex-wrap:wrap;gap:10px}
+    .chip{
+      text-decoration:none;
+      display:inline-block;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-weight:1000;
+      color:#111;
+    }
+    .sellList{margin:8px 0 0 18px;color:#374151;line-height:1.45}
+    .hint{color:var(--muted);font-size:13px;line-height:1.35;margin-top:6px}
+    .choice-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:10px;
+      margin-top:8px;
+    }
+    .choice{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:10px;
+      background:#fff;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .choice input{width:auto;margin-top:2px}
+    details{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:12px;
+      background:#fff;
+      margin:12px 0;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:1000;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    .btn{
+      margin-top:16px;
+      width:100%;
+      padding:14px 16px;
+      border:none;
+      border-radius:16px;
+      background:linear-gradient(135deg,var(--lsu-purple),#2f0f58);
+      color:#fff;
+      font-size:16px;
+      font-weight:1000;
+      cursor:pointer;
+    }
+    .btn:hover{filter:brightness(1.02)}
+    .footer-note{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.35;
+      text-align:center;
+    }
   </style>
 </head>
+
 <body>
-  <!-- NOTE: replace ACTION_URL with your Formspree endpoint (example: https://formspree.io/f/xxxxx) -->
-  <div class="card">
-    <h1>LSU Condo Seller</h1>
-    <p class="lead">More detailed questions so I can price, position, and advise like a top agent (especially for LSU-area buyers).</p>
+  <!-- ACTION REQUIRED: replace ACTION_URL with your Formspree endpoint (example: https://formspree.io/f/xxxxx) -->
 
-    <form action="ACTION_URL" method="POST">
-      <input type="hidden" name="lead_source" value="LSU Condo Seller Intake - GitHub Pages" />
+  <div class="wrap">
+    <div class="card">
+      <div class="goldline"></div>
 
-      <fieldset>
-        <legend>Owner / Contact</legend>
-        <div class="row">
+      <div class="header">
+        <div class="brand">
+          <div class="logo">RH</div>
           <div>
-            <label>Full Name *</label>
-            <input name="name" required />
-          </div>
-          <div>
-            <label>Email *</label>
-            <input type="email" name="email" required />
-          </div>
-          <div>
-            <label>Phone (optional)</label>
-            <input name="phone" />
-          </div>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>Condo Basics</legend>
-        <div class="row">
-          <div>
-            <label>Condo address / unit *</label>
-            <input name="property_address" required placeholder="Example: Highland Village, Unit 210" />
-          </div>
-          <div>
-            <label>Bedrooms *</label>
-            <select name="bedrooms" required>
-              <option value="">--</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4+">4+</option>
-            </select>
-          </div>
-          <div>
-            <label>Bathrooms *</label>
-            <select name="bathrooms" required>
-              <option value="">--</option>
-              <option value="1">1</option>
-              <option value="1.5">1.5</option>
-              <option value="2">2</option>
-              <option value="2.5">2.5</option>
-              <option value="3+">3+</option>
-            </select>
-          </div>
-          <div>
-            <label>Approx. square feet</label>
-            <input name="sqft" />
-          </div>
-          <div>
-            <label>Year built (if known)</label>
-            <input name="year_built" />
-          </div>
-          <div>
-            <label>Parking</label>
-            <select name="parking">
-              <option value="">--</option>
-              <option value="Assigned">Assigned</option>
-              <option value="Covered">Covered</option>
-              <option value="Garage">Garage</option>
-              <option value="Open / first come">Open / first come</option>
-              <option value="No parking">No parking</option>
-            </select>
-          </div>
-          <div>
-            <label>Floor level</label>
-            <input name="floor_level" placeholder="Example: 1st / 2nd / 3rd" />
-          </div>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>Occupancy</legend>
-        <div class="row">
-          <div>
-            <label>Current occupancy *</label>
-            <select name="occupancy" required>
-              <option value="">--</option>
-              <option value="Owner occupied">Owner occupied</option>
-              <option value="Tenant occupied">Tenant occupied</option>
-              <option value="Vacant">Vacant</option>
-            </select>
-          </div>
-          <div>
-            <label>If tenant occupied: rent (monthly)</label>
-            <input name="tenant_rent" placeholder="$" />
-          </div>
-          <div>
-            <label>Lease end date (if known)</label>
-            <input type="date" name="lease_end" />
-          </div>
-          <div>
-            <label>Can tenant stay after sale?</label>
-            <select name="tenant_can_stay">
-              <option value="">--</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-              <option value="Maybe / depends">Maybe / depends</option>
-            </select>
-          </div>
-          <div>
-            <label>Notice required for showings</label>
-            <select name="showing_notice">
-              <option value="">--</option>
-              <option value="Same day">Same day</option>
-              <option value="24 hours">24 hours</option>
-              <option value="48 hours">48 hours</option>
-              <option value="Weekends only">Weekends only</option>
-            </select>
-          </div>
-        </div>
-        <label>Showings (notes)</label>
-        <textarea name="showing_notes" rows="3" placeholder="Best times / alarm codes / pets / tenant rules"></textarea>
-      </fieldset>
-
-      <fieldset>
-        <legend>HOA & Money</legend>
-        <div class="row">
-          <div>
-            <label>HOA dues (monthly)</label>
-            <input name="hoa_dues" placeholder="$" />
-          </div>
-          <div>
-            <label>Does HOA include any of the following?</label>
-            <div class="inline">
-              <label><input type="checkbox" name="hoa_includes[]" value="Water"> Water</label>
-              <label><input type="checkbox" name="hoa_includes[]" value="Sewer"> Sewer</label>
-              <label><input type="checkbox" name="hoa_includes[]" value="Trash"> Trash</label>
-              <label><input type="checkbox" name="hoa_includes[]" value="Internet"> Internet</label>
-              <label><input type="checkbox" name="hoa_includes[]" value="Cable"> Cable</label>
-              <label><input type="checkbox" name="hoa_includes[]" value="Exterior insurance"> Exterior insurance</label>
-              <label><input type="checkbox" name="hoa_includes[]" value="Flood insurance"> Flood insurance</label>
-              <label><input type="checkbox" name="hoa_includes[]" value="Pest control"> Pest control</label>
-              <label><input type="checkbox" name="hoa_includes[]" value="Landscaping"> Landscaping</label>
-              <label><input type="checkbox" name="hoa_includes[]" value="Security / gate"> Security / gate</label>
+            <h1>LSU Area Condo Seller Intake</h1>
+            <div class="sub">
+              Quick, mostly multiple-choice questions so I can give you a realistic value range + best plan
+              (owner-occupant vs investor, tenant-friendly strategy, HOA considerations).
+            </div>
+            <div class="pillbar">
+              <div class="pill"><span class="dot"></span> Rima Hodgeson • Realtor</div>
+              <div class="pill">ABR • SRS • Relocation Specialist</div>
+              <div class="pill">LSU-area condos + investor buyers</div>
             </div>
           </div>
-          <div>
-            <label>Any special assessments?</label>
-            <textarea name="assessments" rows="3"></textarea>
-          </div>
         </div>
-      </fieldset>
+      </div>
 
-      <fieldset>
-        <legend>Condition & Updates</legend>
-        <label>Recent updates (check all that apply)</label>
-        <div class="inline">
-          <label><input type="checkbox" name="updates[]" value="Kitchen"> Kitchen</label>
-          <label><input type="checkbox" name="updates[]" value="Bathrooms"> Bathrooms</label>
-          <label><input type="checkbox" name="updates[]" value="Flooring"> Flooring</label>
-          <label><input type="checkbox" name="updates[]" value="Paint"> Paint</label>
-          <label><input type="checkbox" name="updates[]" value="HVAC"> HVAC</label>
-          <label><input type="checkbox" name="updates[]" value="Water heater"> Water heater</label>
-          <label><input type="checkbox" name="updates[]" value="Windows/Doors"> Windows/Doors</label>
-          <label><input type="checkbox" name="updates[]" value="Roof"> Roof</label>
-          <label><input type="checkbox" name="updates[]" value="Appliances"> Appliances</label>
-        </div>
-        <div class="row">
-          <div>
-            <label>HVAC age (years)</label>
-            <input name="hvac_age" />
-          </div>
-          <div>
-            <label>Water heater age (years)</label>
-            <input name="water_heater_age" />
-          </div>
-          <div>
-            <label>Roof age (years)</label>
-            <input name="roof_age" />
-          </div>
-        </div>
-        <label>Anything else you want me to know about condition / improvements?</label>
-        <textarea name="condition_notes" rows="4"></textarea>
-      </fieldset>
+      <div class="content">
 
-      <fieldset>
-        <legend>Selling Motivation & Expectations</legend>
-        <div class="row">
-          <div>
-            <label>Why are you selling?</label>
-            <textarea name="reason" rows="3"></textarea>
-          </div>
-          <div>
-            <label>Timeline *</label>
-            <select name="timeline" required>
-              <option value="">--</option>
-              <option value="ASAP">ASAP</option>
-              <option value="0-30 days">0–30 days</option>
-              <option value="30-60 days">30–60 days</option>
-              <option value="60-90 days">60–90 days</option>
-              <option value="90+ days">90+ days</option>
-              <option value="Just curious">Just curious</option>
-            </select>
-          </div>
-          <div>
-            <label>Preferred closing date (if any)</label>
-            <input type="date" name="preferred_close" />
-          </div>
-          <div>
-            <label>Price expectation (range)</label>
-            <input name="price_expectation" placeholder="Example: $185k–$200k" />
-          </div>
-          <div>
-            <label>Are you willing to allow the tenant to stay if it helps the sale?</label>
-            <select name="tenant_stay_flex">
-              <option value="">--</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-              <option value="Depends on terms">Depends on terms</option>
-            </select>
-          </div>
-          <div>
-            <label>Are you open to some repairs/concessions?</label>
-            <select name="repairs_concessions">
-              <option value="">--</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-              <option value="Depends">Depends</option>
-            </select>
-          </div>
-        </div>
-        <label>Anything else?</label>
-        <textarea name="notes" rows="4" placeholder="Other important info (COA rules, parking, insurance, disclosures, best buyer for this condo)"></textarea>
-      </fieldset>
+        <!-- CTA / ABOUT RIMA -->
+        <div class="ctaCard">
+          <div class="ctaTop">
+            <div>
+              <div class="ctaName">Rima Hodgeson</div>
+              <div class="ctaTitle">Realtor • ABR • SRS • Relocation Specialist</div>
 
-      <button type="submit">Send to Rima</button>
-    </form>
+              <div class="ctaBtns">
+                <a class="chip" href="tel:2258922131">📞 225-892-2131</a>
+                <a class="chip" href="mailto:rimahodgeson@gmail.com">✉️ rimahodgeson@gmail.com</a>
+              </div>
+              <div class="hint">
+                Prefer not to fill out forms? Call/text or email me directly — I’ll help either way.
+              </div>
+            </div>
+
+            <div style="max-width:420px;">
+              <div style="font-weight:1000;">How I’ll get your condo sold (smart + LSU-focused)</div>
+              <ul class="sellList">
+                <li><strong>Professional photography</strong> + optimized presentation.</li>
+                <li><strong>Matterport 3D tours</strong> so buyers/investors tour virtually first — fewer tenant disruptions.</li>
+                <li><strong>Targeted digital ads + SEO</strong> to reach the right LSU-area buyer pool.</li>
+                <li><strong>Compass 3-Phase Marketing</strong> for the strongest launch strategy.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 3-Phase Marketing explanation dropdown -->
+          <details>
+            <summary>What is Compass 3-Phase Marketing? (tap to expand)</summary>
+            <div style="margin-top:10px;color:#374151;line-height:1.5;">
+              <p style="margin:0 0 10px;">
+                Compass 3-Phase Marketing is a smart launch plan designed to build demand, protect pricing, and reduce wasted showings.
+                We can market your condo in stages so you get the right exposure at the right time.
+              </p>
+              <p style="margin:0 0 8px;"><strong>Phase 1 — Private Exclusive (off-MLS):</strong> Quietly shared with qualified buyers through Compass before it goes public. Great for privacy and tenant-friendly selling.</p>
+              <p style="margin:0 0 8px;"><strong>Phase 2 — Coming Soon:</strong> Pre-launch visibility to build anticipation and line up serious interest before the full public launch.</p>
+              <p style="margin:0 0 0;"><strong>Phase 3 — Public Launch (MLS):</strong> Full exposure across MLS + major home sites with strong presentation and promotion to drive the strongest offers.</p>
+              <p style="margin:10px 0 0;color:#6b7280;">
+                Matterport helps here too: buyers can tour virtually first — then in-person showings are for real interest.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <form action="https://formspree.io/f/xvzbvoov" method="POST">
+  <input type="hidden" name="_redirect" value="https://rimastylehomes.github.io/start/condo-seller/thank-you.html">
+  <input type="hidden" name="_subject" value="New LSU Condo Seller Lead">
+          <input type="hidden" name="lead_source" value="LSU Condo Seller Intake - RimaStyleHomes LSU Theme" />
+
+          <!-- 1 CONTACT -->
+          <fieldset>
+            <legend>1) Contact</legend>
+            <div class="row cols2">
+              <div>
+                <label>Full Name *</label>
+                <input name="name" required>
+              </div>
+              <div>
+                <label>Email *</label>
+                <input type="email" name="email" required>
+              </div>
+            </div>
+
+            <div class="row cols2">
+              <div>
+                <label>Phone *</label>
+                <input name="phone" required>
+              </div>
+              <div>
+                <label>Preferred way to be contacted *</label>
+                <select name="contact_preference" required>
+                  <option value="">Select…</option>
+                  <option>Text</option>
+                  <option>Call</option>
+                  <option>Email</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- 2 BASICS -->
+          <fieldset>
+            <legend>2) Condo Basics</legend>
+            <div class="row cols2">
+              <div>
+                <label>Condo Address / Unit *</label>
+                <input name="property_address" required placeholder="Example: Highland Village, Unit 210">
+              </div>
+              <div>
+                <label>Community (if known)</label>
+                <select name="community_name">
+                  <option value="">Select…</option>
+                  <option>Highland Village</option>
+                  <option>Brightside Manor</option>
+                  <option>Lake Beau Pre</option>
+                  <option>River House</option>
+                  <option>Other / Not sure</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row cols3">
+              <div>
+                <label>Bedrooms *</label>
+                <select name="bedrooms" required>
+                  <option value="">Select…</option>
+                  <option>1</option><option>2</option><option>3</option><option>4+</option>
+                </select>
+              </div>
+              <div>
+                <label>Bathrooms *</label>
+                <select name="bathrooms" required>
+                  <option value="">Select…</option>
+                  <option>1</option><option>1.5</option><option>2</option><option>2.5</option><option>3+</option>
+                </select>
+              </div>
+              <div>
+                <label>Approx. Sq Ft</label>
+                <select name="sqft_range">
+                  <option value="">Select…</option>
+                  <option>&lt; 700</option>
+                  <option>700–899</option>
+                  <option>900–1099</option>
+                  <option>1100–1299</option>
+                  <option>1300+</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row cols3">
+              <div>
+                <label>Floor level</label>
+                <select name="floor_level">
+                  <option value="">Select…</option>
+                  <option>Ground / 1st</option>
+                  <option>2nd</option>
+                  <option>3rd+</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+              <div>
+                <label>Parking</label>
+                <select name="parking">
+                  <option value="">Select…</option>
+                  <option>Assigned</option>
+                  <option>Covered</option>
+                  <option>Garage</option>
+                  <option>Open / first come</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+              <div>
+                <label>Year built (if known)</label>
+                <select name="year_built_range">
+                  <option value="">Select…</option>
+                  <option>Before 1980</option>
+                  <option>1980–1999</option>
+                  <option>2000–2009</option>
+                  <option>2010–2019</option>
+                  <option>2020+</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- 3 OCCUPANCY / TENANTS -->
+          <fieldset>
+            <legend>3) Occupancy & Tenants</legend>
+
+            <div class="row cols2">
+              <div>
+                <label>Current occupancy *</label>
+                <select name="occupancy" required>
+                  <option value="">Select…</option>
+                  <option>Owner occupied</option>
+                  <option>Tenant occupied</option>
+                  <option>Vacant</option>
+                </select>
+              </div>
+              <div>
+                <label>Can tenant stay after sale? (if applicable)</label>
+                <select name="tenant_can_stay">
+                  <option value="">Select…</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                  <option>Maybe / depends</option>
+                  <option>Not applicable</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row cols3">
+              <div>
+                <label>Tenant monthly rent (if applicable)</label>
+                <select name="tenant_rent_range">
+                  <option value="">Select…</option>
+                  <option>&lt; $1,000</option>
+                  <option>$1,000–$1,249</option>
+                  <option>$1,250–$1,499</option>
+                  <option>$1,500–$1,749</option>
+                  <option>$1,750+</option>
+                  <option>Not sure</option>
+                  <option>Not applicable</option>
+                </select>
+              </div>
+              <div>
+                <label>Lease end date (if known)</label>
+                <input type="date" name="lease_end">
+              </div>
+              <div>
+                <label>Tenants planning to renew?</label>
+                <select name="tenant_plans_renew">
+                  <option value="">Select…</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                  <option>Not sure</option>
+                  <option>Not applicable</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row cols2">
+              <div>
+                <label>Notice needed for showings</label>
+                <select name="showing_notice">
+                  <option value="">Select…</option>
+                  <option>Vacant / flexible</option>
+                  <option>Same day</option>
+                  <option>24 hours</option>
+                  <option>48 hours</option>
+                  <option>Limited days/times</option>
+                </select>
+              </div>
+              <div>
+                <label>Best times for showings</label>
+                <select name="best_showing_times">
+                  <option value="">Select…</option>
+                  <option>Weekdays</option>
+                  <option>Weekends</option>
+                  <option>After 5pm</option>
+                  <option>Mornings</option>
+                  <option>Flexible</option>
+                </select>
+              </div>
+            </div>
+
+            <label>Notes (optional)</label>
+            <textarea name="occupancy_notes" placeholder="Pets, access notes, tenant rules, etc."></textarea>
+          </fieldset>
+
+          <!-- 4 HOA -->
+          <fieldset>
+            <legend>4) HOA & Fees</legend>
+
+            <div class="row cols3">
+              <div>
+                <label>HOA dues per month</label>
+                <select name="hoa_dues_range">
+                  <option value="">Select…</option>
+                  <option>&lt; $200</option>
+                  <option>$200–$299</option>
+                  <option>$300–$399</option>
+                  <option>$400–$499</option>
+                  <option>$500+</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+              <div>
+                <label>Any special assessments?</label>
+                <select name="special_assessments">
+                  <option value="">Select…</option>
+                  <option>No</option>
+                  <option>Yes</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+              <div>
+                <label>Rental restrictions (if known)</label>
+                <select name="rental_restrictions_known">
+                  <option value="">Select…</option>
+                  <option>No restrictions known</option>
+                  <option>Some restrictions</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+            </div>
+
+            <label>What does HOA include? (check all that apply)</label>
+            <div class="choice-grid">
+              <div class="choice"><input type="checkbox" name="hoa_includes[]" value="Water"><div><strong>Water</strong></div></div>
+              <div class="choice"><input type="checkbox" name="hoa_includes[]" value="Trash"><div><strong>Trash</strong></div></div>
+              <div class="choice"><input type="checkbox" name="hoa_includes[]" value="Exterior insurance"><div><strong>Exterior insurance</strong></div></div>
+              <div class="choice"><input type="checkbox" name="hoa_includes[]" value="Flood insurance"><div><strong>Flood insurance</strong></div></div>
+              <div class="choice"><input type="checkbox" name="hoa_includes[]" value="Internet/Cable"><div><strong>Internet/Cable</strong></div></div>
+              <div class="choice"><input type="checkbox" name="hoa_includes[]" value="Pool/Amenities"><div><strong>Pool/Amenities</strong></div></div>
+              <div class="choice"><input type="checkbox" name="hoa_includes[]" value="Pest control"><div><strong>Pest control</strong></div></div>
+              <div class="choice"><input type="checkbox" name="hoa_includes[]" value="Security/Gate"><div><strong>Security/Gate</strong></div></div>
+            </div>
+
+            <label>Assessment details (if any)</label>
+            <textarea name="assessment_details" placeholder="Amount + timing (if known)"></textarea>
+          </fieldset>
+
+          <!-- 5 CONDITION / UPDATES -->
+          <fieldset>
+            <legend>5) Updates & Condition</legend>
+
+            <div class="row cols3">
+              <div>
+                <label>HVAC age</label>
+                <select name="hvac_age_range">
+                  <option value="">Select…</option>
+                  <option>0–3 yrs</option>
+                  <option>4–7 yrs</option>
+                  <option>8–12 yrs</option>
+                  <option>13–15 yrs</option>
+                  <option>15+ yrs</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+              <div>
+                <label>Water heater age</label>
+                <select name="water_heater_age_range">
+                  <option value="">Select…</option>
+                  <option>0–3 yrs</option>
+                  <option>4–7 yrs</option>
+                  <option>8–12 yrs</option>
+                  <option>13+ yrs</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+              <div>
+                <label>Appliances age (overall)</label>
+                <select name="appliance_age_range">
+                  <option value="">Select…</option>
+                  <option>0–3 yrs</option>
+                  <option>4–7 yrs</option>
+                  <option>8–12 yrs</option>
+                  <option>13+ yrs</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row cols3">
+              <div>
+                <label>Kitchen countertops</label>
+                <select name="countertops">
+                  <option value="">Select…</option>
+                  <option>Quartz</option>
+                  <option>Granite</option>
+                  <option>Solid surface</option>
+                  <option>Tile</option>
+                  <option>Laminate</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+              <div>
+                <label>Flooring</label>
+                <select name="flooring">
+                  <option value="">Select…</option>
+                  <option>LVP / Vinyl</option>
+                  <option>Tile</option>
+                  <option>Wood</option>
+                  <option>Carpet</option>
+                  <option>Mixed</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+              <div>
+                <label>Bathrooms updated?</label>
+                <select name="bath_updates">
+                  <option value="">Select…</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                  <option>Partially</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+            </div>
+
+            <label>Known issues (optional)</label>
+            <textarea name="known_issues" placeholder="Any leaks, stains, electrical concerns, appliance issues, etc."></textarea>
+          </fieldset>
+
+          <!-- 6 FINANCES -->
+          <fieldset>
+            <legend>6) Finances (helps with net + strategy)</legend>
+            <div class="row cols3">
+              <div>
+                <label>Purchased with</label>
+                <select name="purchase_type">
+                  <option value="">Select…</option>
+                  <option>Cash</option>
+                  <option>Mortgage</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+              <div>
+                <label>Payoff balance (estimate)</label>
+                <select name="payoff_range">
+                  <option value="">Select…</option>
+                  <option>$0 (owned free & clear)</option>
+                  <option>$1–$50k</option>
+                  <option>$50k–$100k</option>
+                  <option>$100k–$150k</option>
+                  <option>$150k–$200k</option>
+                  <option>$200k+</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+              <div>
+                <label>Any liens / HELOC?</label>
+                <select name="liens_heloc">
+                  <option value="">Select…</option>
+                  <option>No</option>
+                  <option>Yes</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row cols3">
+              <div>
+                <label>Annual taxes (approx.)</label>
+                <select name="taxes_range">
+                  <option value="">Select…</option>
+                  <option>&lt; $1,000</option>
+                  <option>$1,000–$2,000</option>
+                  <option>$2,000–$3,000</option>
+                  <option>$3,000+</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+              <div>
+                <label>Annual insurance (approx.)</label>
+                <select name="insurance_range">
+                  <option value="">Select…</option>
+                  <option>&lt; $1,000</option>
+                  <option>$1,000–$2,000</option>
+                  <option>$2,000–$3,000</option>
+                  <option>$3,000+</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+              <div>
+                <label>Flood insurance separately?</label>
+                <select name="flood_insurance">
+                  <option value="">Select…</option>
+                  <option>No</option>
+                  <option>Yes</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- 7 SELLING GOALS -->
+          <fieldset>
+            <legend>7) Selling Goals & Timing</legend>
+            <div class="row cols3">
+              <div>
+                <label>Timeline *</label>
+                <select name="timeline" required>
+                  <option value="">Select…</option>
+                  <option>ASAP</option>
+                  <option>0–30 days</option>
+                  <option>30–60 days</option>
+                  <option>60–90 days</option>
+                  <option>90+ days</option>
+                  <option>Just curious</option>
+                </select>
+              </div>
+              <div>
+                <label>Preferred list date (if any)</label>
+                <input type="date" name="preferred_list_date">
+              </div>
+              <div>
+                <label>Preferred closing date (if any)</label>
+                <input type="date" name="preferred_close_date">
+              </div>
+            </div>
+
+            <div class="row cols2">
+              <div>
+                <label>Price expectation (if you have one)</label>
+                <select name="price_expectation_range">
+                  <option value="">Select…</option>
+                  <option>&lt; $150k</option>
+                  <option>$150k–$175k</option>
+                  <option>$175k–$200k</option>
+                  <option>$200k–$250k</option>
+                  <option>$250k–$300k</option>
+                  <option>$300k+</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+              <div>
+                <label>Open to minor repairs/credits if needed?</label>
+                <select name="repairs_concessions">
+                  <option value="">Select…</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                  <option>Depends</option>
+                </select>
+              </div>
+            </div>
+
+            <label>Anything else you want me to know?</label>
+            <textarea name="notes" placeholder="Parking details, HOA rules, tenant situation, what matters most to you, etc."></textarea>
+          </fieldset>
+
+          <!-- CTA before submit -->
+          <div style="border:1px solid var(--line);border-radius:16px;padding:12px;background:#fff;margin-top:10px;">
+            <div style="font-weight:1000;margin-bottom:6px;">Ready for a value range + game plan?</div>
+            <div style="color:#374151;line-height:1.45;">
+              Submit this quick form and I’ll send you a realistic price range and a simple LSU-focused strategy —
+              including the best approach if you have tenants.
+            </div>
+          </div>
+
+          <button class="btn" type="submit">Send to Rima</button>
+
+          <div class="footer-note">
+            Prefer to skip the form? Call/text <a href="tel:2258922131" style="color:#111;font-weight:1000;">225-892-2131</a>
+            or email <a href="mailto:rimahodgeson@gmail.com" style="color:#111;font-weight:1000;">rimahodgeson@gmail.com</a>.
+          </div>
+        </form>
+
+      </div>
+    </div>
   </div>
 </body>
 </html>
