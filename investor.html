@@ -1,1 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Baton Rouge Investment Property Finder | Rima Hodgeson</title>
+
+<style>
+
+body{
+font-family: Arial, Helvetica, sans-serif;
+background:#f6f7fb;
+margin:0;
+}
+
+.header{
+background:white;
+padding:20px;
+text-align:center;
+box-shadow:0 3px 10px rgba(0,0,0,.1);
+}
+
+.logo{
+height:70px;
+}
+
+.hero{
+background:#461D7C;
+color:white;
+padding:60px;
+text-align:center;
+}
+
+.hero h1{
+margin:0;
+font-size:36px;
+}
+
+.hero p{
+font-size:18px;
+margin-top:10px;
+}
+
+.cta{
+margin-top:25px;
+}
+
+.cta a{
+background:#FDD023;
+color:#000;
+padding:14px 24px;
+border-radius:6px;
+font-weight:bold;
+text-decoration:none;
+margin:10px;
+display:inline-block;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+background:white;
+padding:40px;
+margin-top:-40px;
+border-radius:10px;
+box-shadow:0 15px 40px rgba(0,0,0,.1);
+}
+
+h2{
+color:#461D7C;
+}
+
+label{
+display:block;
+margin-top:15px;
+font-weight:bold;
+}
+
+input, select, textarea{
+width:100%;
+padding:10px;
+margin-top:5px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+button{
+margin-top:20px;
+padding:14px;
+background:#461D7C;
+color:white;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#35145f;
+}
+
+.calculator{
+background:#f2f2f2;
+padding:25px;
+border-radius:8px;
+margin-top:25px;
+}
+
+.results{
+margin-top:20px;
+background:white;
+padding:20px;
+border-radius:8px;
+}
+
+.footer{
+text-align:center;
+padding:40px;
+color:#777;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<img src="logo2025.jpg" class="logo">
+
+</div>
+
+<div class="hero">
+
+<h1>Let's Make the American Dream a Reality</h1>
+
+<p>Explore Baton Rouge investment opportunities and analyze deals before you buy.</p>
+
+<div class="cta">
+
+<a href="tel:2258922131">Call / Text Rima</a>
+
+<a href="#form">Start Your Investment Search</a>
+
+</div>
+
+</div>
+
+<div class="container">
+
+<h2 id="form">Tell Me About Your Investment Goals</h2>
+
+<form action="https://formspree.io/f/YOURFORMID" method="POST">
+
+<label>Full Name</label>
+<input type="text" name="name" required>
+
+<label>Email</label>
+<input type="email" name="email">
+
+<label>Phone</label>
+<input type="tel" name="phone">
+
+<label>Investment Budget</label>
+<select name="budget">
+<option>Under $200k</option>
+<option>$200k – $400k</option>
+<option>$400k – $700k</option>
+<option>$700k – $1M</option>
+<option>$1M+</option>
+</select>
+
+<label>Financing Method</label>
+<select name="financing">
+<option>Cash</option>
+<option>Cash + Financing</option>
+<option>Conventional Loan</option>
+<option>DSCR Loan</option>
+<option>Commercial Loan</option>
+<option>Not Sure Yet</option>
+</select>
+
+<label>Property Type</label>
+<select name="type">
+<option>Single Family</option>
+<option>Duplex</option>
+<option>Triplex</option>
+<option>Fourplex</option>
+<option>Apartment Complex</option>
+<option>Condo</option>
+<option>Short Term Rental</option>
+<option>Land</option>
+</select>
+
+<label>Preferred Areas or Zip Codes</label>
+<input type="text" name="location">
+
+<label>Timeline</label>
+<select name="timeline">
+<option>Immediately</option>
+<option>1-3 months</option>
+<option>3-6 months</option>
+<option>6-12 months</option>
+<option>Researching</option>
+</select>
+
+<label>Additional Notes</label>
+<textarea name="notes"></textarea>
+
+<button type="submit">Submit Investment Goals</button>
+
+</form>
+
+<h2>Investment Deal Analyzer</h2>
+
+<div class="calculator">
+
+<label>Purchase Price</label>
+<input type="number" id="price">
+
+<label>Down Payment (%)</label>
+<input type="number" id="down">
+
+<label>Interest Rate (%)</label>
+<input type="number" id="rate">
+
+<label>Loan Term (years)</label>
+<input type="number" id="term" value="30">
+
+<label>Estimated Monthly Rent</label>
+<input type="number" id="rent">
+
+<label>Estimated Monthly Expenses</label>
+<input type="number" id="expenses">
+
+<button onclick="analyzeDeal()">Analyze Investment</button>
+
+<div class="results">
+
+<p id="mortgage"></p>
+<p id="cashflow"></p>
+<p id="annual"></p>
+<p id="caprate"></p>
+<p id="roi"></p>
+<p id="verdict"></p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+<p><strong>Rima Hodgeson</strong></p>
+
+<p>REALTOR® | ABR | SRS | BGRS</p>
+
+<p>Compass</p>
+
+<p>📞 225-892-2131</p>
+
+<p>"Your Vision, My Commitment"</p>
+
+</div>
+
+<script>
+
+function analyzeDeal(){
+
+let price = parseFloat(document.getElementById("price").value || 0);
+
+let downPercent = parseFloat(document.getElementById("down").value || 0)/100;
+
+let rate = parseFloat(document.getElementById("rate").value || 0)/100/12;
+
+let term = parseFloat(document.getElementById("term").value || 30)*12;
+
+let rent = parseFloat(document.getElementById("rent").value || 0);
+
+let expenses = parseFloat(document.getElementById("expenses").value || 0);
+
+let loan = price*(1-downPercent);
+
+let mortgage=0;
+
+if(rate>0){
+
+mortgage=loan*rate*Math.pow(1+rate,term)/(Math.pow(1+rate,term)-1);
+
+}
+
+let cashflow=rent-expenses-mortgage;
+
+let annual=cashflow*12;
+
+let caprate=((rent*12-expenses*12)/price)*100;
+
+let cashInvested=price*downPercent;
+
+let roi=(annual/cashInvested)*100;
+
+let verdict="";
+
+let color="";
+
+if(cashflow>300 && caprate>=7){
+
+verdict="🟢 Excellent Investment Opportunity";
+
+color="green";
+
+}
+
+else if(cashflow>=0 && caprate>=5){
+
+verdict="🟡 Moderate Investment – Review Numbers Carefully";
+
+color="orange";
+
+}
+
+else{
+
+verdict="🔴 Higher Risk Investment – Evaluate Carefully";
+
+color="red";
+
+}
+
+document.getElementById("mortgage").innerHTML="Estimated Mortgage: $"+mortgage.toFixed(0);
+
+document.getElementById("cashflow").innerHTML="Monthly Cash Flow: $"+cashflow.toFixed(0);
+
+document.getElementById("annual").innerHTML="Annual Cash Flow: $"+annual.toFixed(0);
+
+document.getElementById("caprate").innerHTML="Estimated Cap Rate: "+caprate.toFixed(2)+"%";
+
+document.getElementById("roi").innerHTML="Estimated ROI: "+roi.toFixed(2)+"%";
+
+let verdictElement=document.getElementById("verdict");
+
+verdictElement.innerHTML=verdict;
+
+verdictElement.style.fontWeight="bold";
+
+verdictElement.style.fontSize="18px";
+
+verdictElement.style.color=color;
+
+}
+
+</script>
+
+</body>
+
+</html>
